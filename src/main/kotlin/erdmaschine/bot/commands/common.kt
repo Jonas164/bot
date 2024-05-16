@@ -18,6 +18,10 @@ import net.dv8tion.jda.api.interactions.InteractionHook
 suspend fun JDA.getUser(userId: String): User =
     this.getUserById(userId) ?: this.retrieveUserById(userId).submit().await()
 
+suspend fun getAllMessagesSince(){
+
+}
+
 suspend fun getTopAuthors(favs: Collection<Fav>, jda: JDA): Collection<String> =
     favs.groupBy { it.authorId }
         .mapValues { grouping -> grouping.value.distinctBy { it.messageId }.size }

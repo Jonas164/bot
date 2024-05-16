@@ -50,7 +50,8 @@ class StatusCheck(env: Env) {
     }
 
     private fun RedditFacade.check() {
-        fetch(setOf(Sub("", "", "all", "top", false)))
+        return;
+        //fetch(setOf(Sub("", "", "all", "top", false)))
     }
 
     private fun JDA.check() {

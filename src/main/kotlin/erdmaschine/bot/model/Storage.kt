@@ -252,6 +252,22 @@ class Storage(env: Env) {
         }
     }
 
+    suspend fun getUsersForKeyword(guildId: String, keyword: String){
+        val row = query(dataSource) {
+            Keywords.select { Keywords.keyword eq keyword }
+        }
+
+        row.map { Keyword.fromResultRow(it) }
+    }
+
+    suspend fun addKeyword(guildId: String, keyword: String, userId: String){
+        val row = query(dataSource) {
+            Keywords.select { Keywords.keyword eq keyword }
+        }
+
+        row.map { Keyword.fromResultRow(it) }
+    }
+
     private suspend fun <T> query(dataSource: DataSource, block: () -> T): T =
         withContext(Dispatchers.IO) {
             transaction(Database.connect(dataSource)) {

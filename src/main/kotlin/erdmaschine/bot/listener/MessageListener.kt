@@ -1,5 +1,6 @@
 package erdmaschine.bot.listener
 
+import erdmaschine.bot.model.KeywordNotifier
 import erdmaschine.bot.model.Storage
 import kotlinx.coroutines.future.await
 import kotlinx.coroutines.runBlocking
